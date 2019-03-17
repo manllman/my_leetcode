@@ -5,20 +5,17 @@
 s3 > s4 > s2 > s1
 '''
 import time
-nums = [2, 9, 13, 7, 11, 15]
-target = 9
+nums = [3,3]
+target = 6
 # sqing的小年轻的算法
 class S1_sqing:
     def twoSum(self, nums, target):
-        # 选取出来所有小于target数
-        nums_id = {v:k for k,v in enumerate(nums)}
-        max_in_nums = [nums[i] for i in range(len(nums)) if nums[i] <= target]
         # 挨个问
-        for j in range(len(max_in_nums)-1):
-            target = target-max_in_nums[j]
-            for k in range(j+1,len(max_in_nums)):
-                if max_in_nums[k] == target:
-                    return [nums_id[max_in_nums[j]],nums_id[max_in_nums[k]]]
+        for j in range(len(nums)-1):
+            sub_num = target-nums[j]
+            for k in range(j+1,len(nums)):
+                if nums[k] == sub_num:
+                    return [j,k]
 
 
 class S2_morty:
